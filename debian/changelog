@@ -1,0 +1,5 @@
+filehosting-server (1.0-1) unstable; urgency=medium
+
+  * Initial release of the file hosting server.
+
+ -- finder17 <finder17@pwing.site>  Thu, 27 Mar 2025 12:00:00 +0000
