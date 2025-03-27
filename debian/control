@@ -7,6 +7,7 @@ Build-Depends: debhelper (>= 9)
 
 Package: filehosting-server
 Architecture: arm64
-Depends: python3, python3-json, ${misc:Depends}
+Depends: python3, python3-json, python3-requests, python3-pyotp, ${misc:Depends}
 Description: Local server file hosting system for ARM64
  A lightweight file hosting server that serves files from external drives.
+ Includes features like 2FA, file compression, scheduled backups, and DDNS.
