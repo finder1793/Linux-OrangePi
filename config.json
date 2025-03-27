@@ -1,0 +1,50 @@
+{
+    "drives": ["/mnt/external_drive"],
+    "port": 8080,
+    "external_domain": "http://example.com",
+    "admin_credentials": {
+        "username": "admin",
+        "password": "admin"
+    },
+    "ssl_cert": "/etc/filehosting-server/cert.pem",
+    "ssl_key": "/etc/filehosting-server/key.pem",
+    "rate_limit_window": 60,
+    "rate_limit_requests": 100,
+    "enable_dynamic_reload": true,
+    "log_rotation_size": 5242880,
+    "alert_email": "admin@example.com",
+    "webhook_url": "https://hooks.example.com/webhook",
+    "enable_dark_mode": false,
+    "enable_2fa": true,
+    "totp_secret": "JBSWY3DPEHPK3PXP",
+    "backup_schedule": {
+        "enabled": true,
+        "interval_hours": 24,
+        "backup_path": "/backups"
+    },
+    "external_services": {
+        "dropbox": {
+            "enabled": false,
+            "api_key": ""
+        },
+        "google_drive": {
+            "enabled": false,
+            "api_key": ""
+        },
+        "aws_s3": {
+            "enabled": false,
+            "access_key": "",
+            "secret_key": "",
+            "bucket_name": ""
+        }
+    },
+    "ddns": {
+        "enabled": true,
+        "provider": "No-IP",
+        "api_url": "https://dynupdate.no-ip.com/nic/update",
+        "username": "your_ddns_username",
+        "password": "your_ddns_password",
+        "domain": "yourdomain.ddns.net"
+    },
+    "ip_check_interval": 300
+}

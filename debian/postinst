@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+
+# Ensure the external drive is mounted
+if ! mount | grep -q "/mnt/external_drive"; then
+    echo "Mounting external drive..."
+    mkdir -p /mnt/external_drive
+    mount /dev/sdX1 /mnt/external_drive  # Replace /dev/sdX1 with the actual device
+fi
+
+# Create configuration directory and default config file if not exists
+CONFIG_DIR="/etc/filehosting-server"
+CONFIG_FILE="$CONFIG_DIR/config.json"
+if [ ! -d "$CONFIG_DIR" ]; then
+    mkdir -p "$CONFIG_DIR"
+fi
+if [ ! -f "$CONFIG_FILE" ]; then
+    cat <<EOL > "$CONFIG_FILE"
+{
+    "drives": ["/mnt/external_drive"],
+    "port": 8080,
+    "external_domain": null
+}
+EOL
+fi
+
+# Create log file if it doesn't exist
+LOG_FILE="/var/log/filehosting-server.log"
+if [ ! -f "$LOG_FILE" ]; then
+    touch "$LOG_FILE"
+    chmod 644 "$LOG_FILE"
+fi
+
+# Enable and start the service
+systemctl enable filehosting-server.service
+systemctl start filehosting-server.service

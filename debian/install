@@ -1,0 +1,3 @@
+server.py usr/local/bin/
+filehosting-server.service lib/systemd/system/
+etc/filehosting-server/ etc/filehosting-server/
